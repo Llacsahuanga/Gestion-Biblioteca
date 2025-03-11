@@ -44,7 +44,7 @@ public class LibroServlet extends HttpServlet {
     // Método para insertar libros
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            // Obtener parámetros del formulario
+ 
             int idEditorial = Integer.parseInt(request.getParameter("idEditorial"));
             int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
             String titulo = request.getParameter("titulo");
@@ -69,10 +69,9 @@ public class LibroServlet extends HttpServlet {
             libro.setEstadoAuditoria(estadoAuditoria);
             libro.setFechaCreacion(fechaCreacion);
 
-            // Insertar libro en la base de datos
+    
             libroService.insertarLibro(libro);
 
-            // Redirigir a la lista de libros
             response.sendRedirect("libros");
 
         } catch (Exception e) {
