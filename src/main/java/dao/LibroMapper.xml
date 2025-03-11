@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.LibroMapper">
+
+    <resultMap id="LibroMap" type="models.Libro">
+        <id column="id_libro" property="idLibro"/>
+        <result column="id_editorial" property="idEditorial"/>
+        <result column="id_categoria" property="idCategoria"/>
+        <result column="titulo" property="titulo"/>
+        <result column="autor" property="autor"/>
+        <result column="anio_publicacion" property="anioPublicacion"/>
+        <result column="codigo" property="codigo"/>
+        <result column="descripcion" property="descripcion"/>
+        <result column="estado" property="estado"/>
+        <result column="estado_auditoria" property="estadoAuditoria"/>
+        <result column="fecha_creacion" property="fechaCreacion"/>
+    </resultMap>
+
+    <!-- Consulta para listar los libros -->
+    <select id="listarLibros" resultMap="LibroMap">
+        SELECT id_libro, id_editorial, id_categoria, titulo, autor, 
+               anio_publicacion, codigo, descripcion, estado, 
+               estado_auditoria, fecha_creacion
+        FROM libros
+    </select>
+
+    <!-- Consulta para insertar un libro -->
+    <insert id="insertarLibro" parameterType="models.Libro">
+        INSERT INTO libros (id_editorial, id_categoria, titulo, autor, anio_publicacion, 
+                            codigo, descripcion, estado, estado_auditoria, fecha_creacion)
+        VALUES (#{idEditorial}, #{idCategoria}, #{titulo}, #{autor}, #{anioPublicacion}, 
+                #{codigo}, #{descripcion}, #{estado}, #{estadoAuditoria}, #{fechaCreacion})
+    </insert>
+
+</mapper>

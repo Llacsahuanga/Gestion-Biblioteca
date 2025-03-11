@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.CategoriaMapper">
+
+    <resultMap id="CategoriaMap" type="models.Categoria">
+        <id column="id_categoria" property="idCategoria"/>
+        <result column="nombre" property="nombre"/>
+        <result column="imagen_url" property="imagenUrl"/>
+        <result column="fecha_creacion" property="fechaCreacion"/>
+    </resultMap>
+
+    <select id="listarCategorias" resultMap="CategoriaMap">
+    SELECT id_categoria, nombre, imagen_url, fecha_creacion
+    FROM categorias
+    WHERE estado_auditoria = 'ACTIVO'
+</select>
+    
+
+</mapper>

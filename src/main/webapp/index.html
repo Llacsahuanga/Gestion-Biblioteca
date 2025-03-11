@@ -1,76 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Gestión de Biblioteca</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+	<meta charset="UTF-8">
+	<title>GESTION BIBLIOTECA</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-400">
-    <header>
-       <div class="flex gap-4 bg-blue-600 justify-center h-[50px] items-center">
-          <a class="h-auto text-white hover:bg-blue-700 p-2 rounded-md cursor-pointer border border-white border-solid">Inicio</a>
-          <a class="h-auto text-white hover:bg-blue-700 p-2 rounded-md cursor-pointer border border-white border-solid">Libros</a>
-          <a class="h-auto text-white hover:bg-blue-700 p-2 rounded-md cursor-pointer border border-white border-solid">Autores</a>
-          <a class="h-auto text-white hover:bg-blue-700 p-2 rounded-md cursor-pointer border border-white border-solid">Categorías</a>
-        </div>       
-    </header>
+<body class="bg-gray-400 h-screen flex flex-col">
 
-    <main class="p-4">
-        <h1 class="text-bg-black font-bold text-xl text-center">Categorías de Libros</h1>
-        <div class="flex w-full justify-center p-4 gap-4 flex-wrap">
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://cdn.culturagenial.com/es/imagenes/en-agosto-nos-vemos.jpg?class=article" width="150px">
-                <p class="text-center font-bold text-gray-600">En Agosto nos vemos</p>
-            </div>
-            
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://m.media-amazon.com/images/I/51ptehuTIOL._SY445_SX342_.jpg" width="150px">
-                <p class="text-center font-bold text-gray-600">Cien Años de soledad</p>
-            </div>
-            
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://th.bing.com/th/id/OIP.pSSVGSc1Ni4Fve5wZxCECQAAAA?rs=1&pid=ImgDetMain" width="150px">
-                <p class="text-center font-bold text-gray-600">La Sombra del viento</p>
-            </div>
-            
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://th.bing.com/th/id/OIP.qft60KlcDOGOMs0eigPdBAHaK2?rs=1&pid=ImgDetMain" width="150px">
-                <p class="text-center font-bold text-gray-600">La Odisea</p>
-            </div>
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://cdn.culturagenial.com/es/imagenes/ancho-mundo.jpg?class=article" width="150px">
-                <p class="text-center font-bold text-gray-600">El ancho mundo</p>
-            </div>
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://cdn.culturagenial.com/es/imagenes/bajo-un-cielo-blanco-portada-cke.jpg?class=article" width="150px">
-                <p class="text-center font-bold text-gray-600">Bajo un cielo blanco</p>
-            </div>
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://cdn.culturagenial.com/es/imagenes/romeo-y-julieta-portada-cke.jpg" width="150px">
-                <p class="text-center font-bold text-gray-600">Romeo y Julieta</p>
-            </div>
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://i.pinimg.com/736x/05/df/34/05df348917d103fbe921a7facf674e15.jpg" width="150px">
-                <p class="text-center font-bold text-gray-600">Las mil y una noches</p>
-            </div>
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://images-na.ssl-images-amazon.com/images/I/91Mio7IhlzS.jpg" width="150px">
-                <p class="text-center font-bold text-gray-600">El puño del emperador</p>
-            </div>
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://img.remediosdigitales.com/8ebb13/9788469663271/1366_2000.jpeg" width="150px">
-                <p class="text-center font-bold text-gray-600">El Grúfalo</p>
-            </div>
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://www.denverlibrary.org/sites/dplorg/files/styles/medium/public/2022-07/segredo_av%C3%B3_oso_galiciangarden_kalandraka_portada%20%28290x400%29.jpg?itok=55fkW6Bn" width="150px">
-                <p class="text-center font-bold text-gray-600">El secreto del abuelo oso</p>
-            </div>
-            <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-blue-600 cursor-pointer">
-                <img class="rounded-sm" src="https://www.denverlibrary.org/sites/dplorg/files/styles/medium/public/cover_image/2013915.jpg?itok=EBt9gNhI" width="150px">
-                <p class="text-center font-bold text-gray-600">Un nuevo hogar</p>
-            </div>
-        </div>
-    </main>
+	<header>
+		<div class="flex gap-4 bg-green-600 justify-center h-[50px] items-center">
+			<a href="/Gestion-Biblioteca" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer border border-white border-solid">Inicio</a>
+			<a href="/Gestion-Biblioteca/categorias" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Categorías</a>
+			<a href="/Gestion-Biblioteca/libros" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Libros</a>
+			<a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Reservas</a>
+			<a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Préstamo</a>			
+		</div>
+	</header>
+
+	<main class="flex-grow flex flex-col items-center justify-center p-4">
+		<h1 class="text-black-700 font-bold text-2xl text-center mb-4">Bienvenidos a Gestión Biblioteca!!</h1>
+		<img src="https://viajes.nationalgeographic.com.es/medio/2018/10/23/biblioteca-publica-de-estocolmo_61c07b65_1500x1000.jpg" 
+			 class="w-full max-w-none h-[80vh] object-cover rounded-lg shadow-lg" 
+			 alt="Biblioteca">
+	</main>
+
 </body>
 </html>
