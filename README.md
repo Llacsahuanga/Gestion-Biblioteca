@@ -34,6 +34,8 @@ Una vez ingresados los datos, el libro se guarda en la base de datos y se reflej
 
 
 
+### Diseño BD
 
+https://postimg.cc/FkF0sKxG
 
 
