@@ -31,3 +31,8 @@ La tabla se actualiza automáticamente con la información disponible en la base
 He añadido un botón que permite registrar nuevos libros en la base de datos.
 Al presionar mi seccion de libros, se abre un formulario donde el usuario puede ingresar los detalles del libro (título, autor, editorial, categoría, año de publicación, etc.).
 Una vez ingresados los datos, el libro se guarda en la base de datos y se refleja en la tabla de la sección de libros
+
+
+
+
+
