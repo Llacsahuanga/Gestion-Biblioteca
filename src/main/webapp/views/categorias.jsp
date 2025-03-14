@@ -17,8 +17,8 @@
 			<a href="/Gestion-Biblioteca" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Inicio</a>
 			<a href="/Gestion-Biblioteca/categorias" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer border border-white border-solid">Categorías</a>
 			<a href="/Gestion-Biblioteca/libros" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Libros</a>
+			<a href="/Gestion-Biblioteca/Prestamo" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Prestamo</a>
 			<a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Reservas</a>
-			<a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Prestamo</a>
 		</div>
 	</header>
 	
@@ -32,6 +32,12 @@
 				<div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-2 items-center rounded-md border border-gray-300 border-solid hover:border-green-600 cursor-pointer">
 					<img class="rounded-sm" src="<%= categoria.getImagenUrl() %>" width="150px">
 					<p class="text-center font-bold text-gray-600"><%= categoria.getNombre() %></p>
+					
+					<!-- Botón "Ver Libros" (sin funcionalidad) -->
+					<button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Ver Libros</button>
+
+					<!-- Botón "Eliminar" (sin funcionalidad) -->
+					<button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 w-full">Eliminar</button>
 				</div>
 			<% 	} %>
 			<%	} else { %>
@@ -41,7 +47,6 @@
 		<div>Total registros: <%= categorias.size() %></div>
 		
 	</main>
-	
 	
 </body>
 </html>

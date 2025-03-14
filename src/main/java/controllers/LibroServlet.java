@@ -35,7 +35,7 @@ public class LibroServlet extends HttpServlet {
 
     // Método para listar libros
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Libro> libros = libroService.listarLibros(); // ✅ Asegurar que el método exista
+        List<Libro> libros = libroService.listarLibros(); 
         request.setAttribute("libros", libros);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/libros.jsp");
         dispatcher.forward(request, response);
@@ -79,6 +79,7 @@ public class LibroServlet extends HttpServlet {
             request.setAttribute("error", "Error al insertar el libro.");
             doGet(request, response);
         }
+    
     }
 }
 

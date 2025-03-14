@@ -1,5 +1,6 @@
 package services.impl;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,6 +14,8 @@ import services.LibroService;
 
 
 public class LibroServiceImpl implements LibroService {
+	
+	
 
 	@Override
 	public List<Libro> listarLibros() {
@@ -34,7 +37,19 @@ public class LibroServiceImpl implements LibroService {
         } catch (Exception e) {
             System.out.println("Error al insertar el libro: " + e.getMessage());
         }
+        
+        
     }
+    @Override
+    public List<Libro> filtrarPorEstado(String estado) {
+        try (SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession()) {
+            LibroMapper mapper = session.getMapper(LibroMapper.class);
+            return mapper.filtrarPorEstado(estado);
+        } catch (Exception e) {
+            System.out.println("Error al filtrar libros por estado: " + e.getMessage());
+            return Collections.emptyList();
+        }
+    }
+    
 	
-
 }

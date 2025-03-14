@@ -17,8 +17,8 @@
 			<a href="/Gestion-Biblioteca" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Inicio</a>
 			<a href="/Gestion-Biblioteca/categorias" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Categorías</a>
 			<a href="/Gestion-Biblioteca/libros" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer border border-white border-solid">Libros</a>
+			<a href="/Gestion-Biblioteca/Prestamo" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Prestamo</a>
 			<a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Reservas</a>
-			<a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Prestamo</a>
 		</div>
 	</header>
 	
@@ -111,8 +111,8 @@
 			<div class="mb-2">
 				<label for="estado" class="block text-gray-600">Estado:</label>
 				<select name="estado" class="w-full p-2 border border-gray-300 rounded-md">
-					<option value="Disponible">Disponible</option>
-					<option value="No disponible">No disponible</option>
+					<option value="Disponible">DISPONIBLE</option>
+					<option value="No disponible">NO DISPONIBLE</option>
 				</select>
 			</div>
 
