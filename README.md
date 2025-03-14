@@ -32,6 +32,13 @@ He añadido un botón que permite registrar nuevos libros en la base de datos.
 Al presionar mi seccion de libros, se abre un formulario donde el usuario puede ingresar los detalles del libro (título, autor, editorial, categoría, año de publicación, etc.).
 Una vez ingresados los datos, el libro se guarda en la base de datos y se refleja en la tabla de la sección de libros
 
+Se ha agregado una nueva funcionalidad a la tabla Prestamos, que incluye tres botones:
+1️ Ver disponibles  (Funciona correctamente)
+2 Ver no disponibles  (Aún falta implementar)
+3️ Mostrar todos  (Aún falta implementar)
+
+Actualmente, solo el botón "Ver disponibles" está funcionando, mientras que los otros dos están pendientes de implementación.
+
 
 
 ### Diseño BD
