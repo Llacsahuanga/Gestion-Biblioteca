@@ -1,132 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="models.Libro" %>
+<%@ page import="shared.Constants" %>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>GESTION BIBLIOTECA</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <meta charset="UTF-8">
+    <title>GESTION BIBLIOTECA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-400">
 
-	<header>
-		<div class="flex gap-4 bg-green-600 justify-center h-[50px] items-center">
-			<a href="/Gestion-Biblioteca" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Inicio</a>
-			<a href="/Gestion-Biblioteca/categorias" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Categorías</a>
-			<a href="/Gestion-Biblioteca/libros" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer border border-white border-solid">Libros</a>
-			<a href="/Gestion-Biblioteca/Prestamo" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Prestamo</a>
-			<a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Reservas</a>
-		</div>
-	</header>
-	
-	<main class="p-4">
-		<h2 class="text-xl font-bold text-blak-700 text-center mb-4">Lista de Libros</h2>
+    <% List<Libro> libros = (List<Libro>) request.getAttribute("libros"); %>
 
-		<!-- Mensaje de error si existe -->
-		<% String error = (String) request.getAttribute("error"); 
-		   if (error != null) { %>
-			<p class="text-red-500 text-center"><%= error %></p>
-		<% } %>
+    <header>
+        <div class="flex gap-4 bg-green-600 justify-center h-[50px] items-center">
+            <a href="/Gestion-Biblioteca" class="text-white hover:bg-green-700 p-2 rounded-md">Inicio</a>
+            <a href="/Gestion-Biblioteca/categorias" class="text-white hover:bg-green-700 p-2 rounded-md border border-white border-solid">Categorías</a>
+            <a href="/Gestion-Biblioteca/Prestamo" class="text-white hover:bg-green-700 p-2 rounded-md">Préstamo</a>
+            <a href="/Gestion-Biblioteca/reserva" class="text-white hover:bg-green-700 p-2 rounded-md">Reservas</a>
+        </div>
+    </header>
+    
+    <main class="p-4">
+        <div class="flex w-full justify-center p-4 gap-4 flex-wrap">
+            <% if (libros != null && !libros.isEmpty()) { %>
+                <% for (Libro libro : libros) { %>
+                    <div class="flex bg-gray-200 w-[200px] justify-center flex-col p-4 gap-1 items-center rounded-md border border-gray-300 hover:border-green-600 cursor-pointer">
+                        <img class="rounded-sm" src="<%= (libro.getImagenUrl() != null && !libro.getImagenUrl().isEmpty()) ? libro.getImagenUrl() : Constants.IMAGEN_PRODUCTO_DEFAULT %>" width="150px">
+                        <span class="text-xs text-left text-green-600 font-medium"><%= libro.getIdLibro() %></span>
+                        <span class="text-center font-bold text-blue-600 text-xl"><%= libro.getTitulo() %></span>
+                        <span class="text-center font-bold text-gray-600 text-xs"><%= libro.getAutor() %></span>
+                        <span class="w-full text-red-500 text-left text-xs"><%= libro.getDescripcion() %></span>
+                        <button class="bg-orange-600 w-full text-white font-medium hover:bg-orange-700 p-1 rounded cursor-pointer">+ Agregar Carrito</button>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <p class="text-center text-gray-600">No hay libros disponibles.</p>
+            <% } %>
+        </div>
 
-		<!-- Obtener la lista de libros -->
-		<%
-			List<Libro> libros = (List<Libro>) request.getAttribute("libros");
-			if (libros != null && !libros.isEmpty()) {
-		%>
-			<div class="overflow-x-auto">
-				<table class="w-full border-collapse border border-gray-300">
-					<thead class="bg-green-600 text-white">
-						<tr>
-							<th class="border border-gray-300 p-2">ID</th>
-							<th class="border border-gray-300 p-2">Título</th>
-							<th class="border border-gray-300 p-2">Autor</th>
-							<th class="border border-gray-300 p-2">Año</th>
-							<th class="border border-gray-300 p-2">Código</th>
-							<th class="border border-gray-300 p-2">Descripción</th>
-							<th class="border border-gray-300 p-2">Estado</th>
-							<th class="border border-gray-300 p-2">Fecha Creación</th>
-						</tr>
-					</thead>
-					<tbody>
-						<% for (Libro libro : libros) { %>
-							<tr class="bg-gray-200 hover:bg-gray-300">
-								<td class="border border-gray-300 p-2 text-center"><%= libro.getIdLibro() %></td>
-								<td class="border border-gray-300 p-2"><%= libro.getTitulo() %></td>
-								<td class="border border-gray-300 p-2"><%= libro.getAutor() %></td>
-								<td class="border border-gray-300 p-2 text-center"><%= libro.getAnioPublicacion() %></td>
-								<td class="border border-gray-300 p-2"><%= libro.getCodigo() %></td>
-								<td class="border border-gray-300 p-2"><%= libro.getDescripcion() %></td>
-								<td class="border border-gray-300 p-2 text-center"><%= libro.getEstado() %></td>
-								<td class="border border-gray-300 p-2 text-center"><%= libro.getFechaCreacion() %></td>
-							</tr>
-						<% } %>
-					</tbody>
-				</table>
-			</div>
-		<% } else { %>
-			<p class="text-center text-gray-600">No hay libros disponibles.</p>
-		<% } %>
-
-		<h2 class="text-xl font-bold text-blak-700 text-center mt-6">Agregar Nuevo Libro</h2>
-
-		<form action="libros" method="post" class="max-w-lg mx-auto bg-white p-4 rounded-md shadow-md">
-			<div class="mb-2">
-				<label for="idEditorial" class="block text-gray-600">ID Editorial:</label>
-				<input type="number" name="idEditorial" required class="w-full p-2 border border-gray-300 rounded-md">
-			</div>
-
-			<div class="mb-2">
-				<label for="idCategoria" class="block text-gray-600">ID Categoría:</label>
-				<input type="number" name="idCategoria" required class="w-full p-2 border border-gray-300 rounded-md">
-			</div>
-
-			<div class="mb-2">
-				<label for="titulo" class="block text-gray-600">Título:</label>
-				<input type="text" name="titulo" required class="w-full p-2 border border-gray-300 rounded-md">
-			</div>
-
-			<div class="mb-2">
-				<label for="autor" class="block text-gray-600">Autor:</label>
-				<input type="text" name="autor" required class="w-full p-2 border border-gray-300 rounded-md">
-			</div>
-
-			<div class="mb-2">
-				<label for="anioPublicacion" class="block text-gray-600">Año de Publicación:</label>
-				<input type="number" name="anioPublicacion" required class="w-full p-2 border border-gray-300 rounded-md">
-			</div>
-
-			<div class="mb-2">
-				<label for="codigo" class="block text-gray-600">Código:</label>
-				<input type="text" name="codigo" required class="w-full p-2 border border-gray-300 rounded-md">
-			</div>
-
-			<div class="mb-2">
-				<label for="descripcion" class="block text-gray-600">Descripción:</label>
-				<input type="text" name="descripcion" required class="w-full p-2 border border-gray-300 rounded-md">
-			</div>
-
-			<div class="mb-2">
-				<label for="estado" class="block text-gray-600">Estado:</label>
-				<select name="estado" class="w-full p-2 border border-gray-300 rounded-md">
-					<option value="Disponible">DISPONIBLE</option>
-					<option value="No disponible">NO DISPONIBLE</option>
-				</select>
-			</div>
-
-			<div class="mb-4">
-				<label for="estadoAuditoria" class="block text-gray-600">Estado Auditoría:</label>
-				<input type="text" name="estadoAuditoria" required class="w-full p-2 border border-gray-300 rounded-md">
-			</div>
-
-			<button type="submit" class="w-full bg-green-600 text-white p-2 rounded-md hover:bg-green-700">
-				Agregar Libro
-			</button>
-		</form>
-
-	</main>
-	
+    </main>
 </body>
 </html>

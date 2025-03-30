@@ -33,18 +33,25 @@ public class LibroServlet extends HttpServlet {
         libroService = new LibroServiceImpl();
     }
 
-    // Método para listar libros
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Libro> libros = libroService.listarLibros(); 
-        request.setAttribute("libros", libros);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/libros.jsp");
-        dispatcher.forward(request, response);
+    	Integer idSubcategoria = null;
+    	List<Libro> libros;
+
+    	try {
+    	    idSubcategoria = Integer.parseInt(request.getParameter("idSubcategoria"));
+    	    libros = libroService.listarLibrosPorIdSubcategoria(idSubcategoria);
+    	} catch (NumberFormatException | NullPointerException e) {
+    	    libros = libroService.listarLibros(); 
+    	}
+
+    	request.setAttribute("libros", libros);
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/views/libros.jsp");
+    	dispatcher.forward(request, response);
     }
 
     // Método para insertar libros
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
- 
             int idEditorial = Integer.parseInt(request.getParameter("idEditorial"));
             int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
             String titulo = request.getParameter("titulo");
@@ -69,9 +76,7 @@ public class LibroServlet extends HttpServlet {
             libro.setEstadoAuditoria(estadoAuditoria);
             libro.setFechaCreacion(fechaCreacion);
 
-    
             libroService.insertarLibro(libro);
-
             response.sendRedirect("libros");
 
         } catch (Exception e) {
@@ -79,7 +84,6 @@ public class LibroServlet extends HttpServlet {
             request.setAttribute("error", "Error al insertar el libro.");
             doGet(request, response);
         }
-    
     }
 }
 

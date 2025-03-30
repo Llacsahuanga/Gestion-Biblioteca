@@ -23,6 +23,7 @@
         <!-- Para usar el XML, se referencia con 'resource' -->
         <mapper resource="dao/CategoriaMapper.xml"/>
   		<mapper resource="dao/LibroMapper.xml"/>
-  		
+  		<mapper resource="dao/SubcategoriaMapper.xml"/>
+  		<mapper resource="dao/ReservaMapper.xml"/>
     </mappers>
 </configuration>

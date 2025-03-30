@@ -17,6 +17,21 @@ public class Libro {
     private Date fechaCreacion;
     
     
+    public String getImagenUrl() {
+		return imagenUrl;
+	}
+	public void setImagenUrl(String imagenUrl) {
+		this.imagenUrl = imagenUrl;
+	}
+	public Integer getIdSubcategoria() {
+		return idSubcategoria;
+	}
+	public void setIdSubcategoria(Integer idSubcategoria) {
+		this.idSubcategoria = idSubcategoria;
+	}
+	private String imagenUrl;
+    private Integer idSubcategoria;
+    
 	public int getIdLibro() {
 		return idLibro;
 	}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="dao.SubcategoriaMapper">
+ 
+ 	<resultMap id="SubcategoriaMap" type="models.Subcategoria" >
+ 		<id column="id_subcategoria" property="idSubcategoria"/>
+ 		<result column="id_categoria" property="idCategoria"/>
+ 		<result column="nombre" property="nombre"/>
+ 		<result column="imagen_url" property="imagenUrl"/>
+ 		<result column="fecha_creacion" property="fechaCreacion"/>
+ 	</resultMap>
+ 
+ 	<select id="listarSubcategoriasPorIdCategoria" parameterType="int" resultMap="SubcategoriaMap">
+ 		SELECT id_subcategoria, id_categoria, nombre, imagen_url, fecha_creacion
+ 		FROM subcategorias
+ 		WHERE estado_auditoria = 'ACTIVO' and id_categoria = #{idCategoria}
+ 	</select>
+ 	
+ </mapper>

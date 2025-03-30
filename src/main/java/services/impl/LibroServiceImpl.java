@@ -50,6 +50,17 @@ public class LibroServiceImpl implements LibroService {
             return Collections.emptyList();
         }
     }
+
+	@Override
+	public List<Libro> listarLibrosPorIdSubcategoria(Integer idSubcategoria) {
+		try (SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession()) {
+	        LibroMapper libroMapper = session.getMapper(LibroMapper.class);
+	        return libroMapper.listarLibrosPorIdSubcategoria(idSubcategoria);
+	    } catch (Exception e) {
+	        System.out.println("Error al listar libros por subcategoría: " + e.getMessage());
+	        return null;
+	    }
+	}
     
 	
 }
