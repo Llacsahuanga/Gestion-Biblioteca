@@ -49,6 +49,21 @@
     SELECT * FROM libros WHERE estado = #{estado}
 </select>
 
+<select id="buscarPorId" parameterType="int" resultMap="LibroMap">
+    SELECT 
+        (
+            SELECT pi.imagen_url
+            FROM libro_imagenes pi
+            WHERE pi.estado_auditoria = 'ACTIVO' AND pi.id_libro = p.id_libro
+            ORDER BY pi.fecha_creacion ASC
+            LIMIT 1
+        ) AS imagen_url, 
+        p.id_libro, p.id_editorial, p.id_categoria, p.titulo, p.autor, 
+        p.anio_publicacion, p.codigo, p.descripcion, p.estado,
+        p.estado_auditoria, p.fecha_creacion, p.id_subcategoria
+    FROM libros p
+    WHERE p.estado_auditoria = 'ACTIVO' AND p.id_libro = #{id}
+</select>
 
 	
 </mapper>

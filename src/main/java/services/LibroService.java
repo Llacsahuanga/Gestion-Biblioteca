@@ -14,5 +14,6 @@ public interface LibroService {
 	List<Libro> listarLibros();  
     void insertarLibro(Libro libro);
     List<Libro> filtrarPorEstado(@Param("estado") String estado);
+    Libro obtenerLibroPorId(int id);
  
 }

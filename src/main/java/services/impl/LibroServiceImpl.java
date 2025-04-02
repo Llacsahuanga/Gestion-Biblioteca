@@ -1,6 +1,7 @@
 package services.impl;
 
 import java.util.Collections;
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import config.MyBatisUtil;
 import dao.CategoriaMapper;
 import dao.LibroMapper;
+
 import models.Categoria;
 import models.Libro;
 import services.LibroService;
@@ -61,6 +63,17 @@ public class LibroServiceImpl implements LibroService {
 	        return null;
 	    }
 	}
+
+	@Override
+	public Libro obtenerLibroPorId(int id) {
+		try (SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession()) {
+            LibroMapper productoMapper = session.getMapper(LibroMapper.class);
+            return productoMapper.buscarPorId(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+}
     
 	
 }

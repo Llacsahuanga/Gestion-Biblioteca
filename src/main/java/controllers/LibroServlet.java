@@ -36,18 +36,41 @@ public class LibroServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Integer idSubcategoria = null;
     	List<Libro> libros;
+    	 String idLibroParam = request.getParameter("id"); // Parámetro para obtener un libro específico
 
-    	try {
-    	    idSubcategoria = Integer.parseInt(request.getParameter("idSubcategoria"));
-    	    libros = libroService.listarLibrosPorIdSubcategoria(idSubcategoria);
-    	} catch (NumberFormatException | NullPointerException e) {
-    	    libros = libroService.listarLibros(); 
-    	}
+         try {
+             if (idLibroParam != null) { // Si se solicita un libro específico
+                 int idLibro = Integer.parseInt(idLibroParam);
+                 Libro libro = libroService.obtenerLibroPorId(idLibro);
 
-    	request.setAttribute("libros", libros);
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("/views/libros.jsp");
-    	dispatcher.forward(request, response);
-    }
+                 if (libro != null) {
+                     request.setAttribute("libro", libro);
+                     RequestDispatcher dispatcher = request.getRequestDispatcher("/views/detallelibro.jsp");
+                     dispatcher.forward(request, response);
+                     return;
+                 } else {
+                     // Si no se encuentra el libro, redirigir a un error o a la lista
+                     request.setAttribute("error", "Libro no encontrado");
+                     RequestDispatcher dispatcher = request.getRequestDispatcher("/views/libros.jsp");
+                     dispatcher.forward(request, response);
+                     return;
+                 }
+             } else if (request.getParameter("idSubcategoria") != null) { // Si se solicita por subcategoría
+                 idSubcategoria = Integer.parseInt(request.getParameter("idSubcategoria"));
+                 libros = libroService.listarLibrosPorIdSubcategoria(idSubcategoria);
+             } else {
+                 // Si no hay parámetros de filtro, mostramos todos los libros
+                 libros = libroService.listarLibros();
+             }
+         } catch (NumberFormatException | NullPointerException e) {
+             libros = libroService.listarLibros(); // Si hay error, mostramos todos los libros
+             e.printStackTrace(); // Para depuración
+         }
+
+         request.setAttribute("libros", libros);
+         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/libros.jsp");
+         dispatcher.forward(request, response);
+     }
 
     // Método para insertar libros
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

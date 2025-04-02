@@ -19,11 +19,14 @@
 <body class="bg-gray-400 p-6">
 
     <header>
-		<div class="flex gap-4 bg-green-600 justify-center h-[50px] items-center">
+		<div class="flex gap-4 bg-green-600 h-[50px] items-center justify-between">
+		<div class="flex gap-4 justify-center w-full">
 			<a href="/Gestion-Biblioteca" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Inicio</a>
 			<a href="/Gestion-Biblioteca/categorias" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Categorías</a>
-			<a href="/Gestion-Biblioteca/Prestamo" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer cursor-pointer border border-white border-solid">Prestamo</a>
+			<a href="/Gestion-Biblioteca/Prestamo" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer border border-white border-solid">Prestamo</a>
 			<a href="/Gestion-Biblioteca/reserva" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer">Reservas</a>
+		</div>
+			<a class="mr-2 bg-white p-1 rounded text-green-700 font-medium hover:bg-green-700 hover:text-white hover:border hover:border-white" href="/Gestion-Biblioteca/prestar">Prestar Libro</a>
 		</div>
 	</header>
 
