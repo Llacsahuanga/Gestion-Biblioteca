@@ -21,6 +21,16 @@ public class ReservaServiceImpl implements ReservaService{
 	
 	}
 
+	@Override
+	public void guardarReserva(Reserva reserva) {
+		
+		 try (SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession()) {
+	            ReservaMapper mapper = session.getMapper(ReservaMapper.class);
+	            mapper.insertarReserva(reserva);  // Este método debe ser implementado en tu mapper
+	            session.commit();
+	        }
+	}
+
 	
 }
 

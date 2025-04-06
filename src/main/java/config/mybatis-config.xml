@@ -25,5 +25,7 @@
   		<mapper resource="dao/LibroMapper.xml"/>
   		<mapper resource="dao/SubcategoriaMapper.xml"/>
   		<mapper resource="dao/ReservaMapper.xml"/>
+  		<mapper resource="dao/PrestamoMapper.xml"/>
+        <mapper resource="dao/DetallePrestamoMapper.xml"/>
     </mappers>
 </configuration>

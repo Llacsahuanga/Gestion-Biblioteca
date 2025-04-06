@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="dao.DetallePrestamoMapper">
+ 
+ 	<resultMap id="DetallePrestamoMap" type="models.DetallePrestamo" >
+ 		<id column="id_detalle_prestamo" property="idDetallePrestamo"/>
+ 		<result column="id_prestamo" property="idPrestamo"/>
+ 		<result column="id_ejemplar" property="idEjemplar"/>
+ 		<result column="fecha_devolucion_prevista" property="fechaDevolucionPrevista"/>
+ 		<result column="fecha_devolucion_real" property="fechaDevolucionReal"/>
+ 		<result column="estado" property="estado"/>
+ 		<result column="estado_auditoria" property="estadoAuditoria"/>
+ 		<result column="fecha_creacion" property="fechaCreacion"/>
+ 		<result column="cantidad" property="cantidad"/>
+ 		<result column="id_libro" property="idLibro"/>
+ 	</resultMap>
+ 
+ 	<select id="obtenerDetallePrestamoPorIdPrestamoYIdLibro" resultMap="DetallePrestamoMap">
+ 		SELECT id_detalle_prestamo, id_prestamo, id_ejemplar, fecha_devolucion_prevista, fecha_devolucion_real, estado, estado_auditoria, fecha_creacion, cantidad, id_libro
+ 		FROM detalles_prestamos
+ 		WHERE estado_auditoria = '1' and id_prestamo = #{idPrestamo} and id_libro = #{idLibro}
+ 	</select>
+ 	
+ 	<insert id="insertarDetallePrestamo" parameterType="models.DetallePrestamo" useGeneratedKeys="true" keyProperty="idDetallePrestamo">
+  INSERT INTO detalles_prestamos (id_prestamo, id_ejemplar, fecha_devolucion_prevista, fecha_devolucion_real, id_libro)
+  VALUES (#{idPrestamo}, #{idEjemplar}, #{fechaDevolucionPrevista}, #{fechaDevolucionReal}, #{idLibro})
+</insert>
+ 	
+ 	
+ <update id="aumentarDetallePrestamoCantidad" parameterType="Integer">
+  UPDATE detalles_prestamos
+  SET cantidad = cantidad + 1
+  WHERE id_detalle_prestamo = #{idDetallePrestamo}
+</update>
+ 	
+ 	 	
+ 	
+ </mapper>

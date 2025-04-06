@@ -36,7 +36,7 @@
         <div class="flex justify-center gap-4 mb-4">
             <button onclick="filtrarLibros('DISPONIBLE')" class="bg-green-600 text-white p-2 rounded-md hover:bg-green-700">Ver Disponibles</button>
             <button onclick="filtrarLibros('NO DISPONIBLE')" class="bg-red-600 text-white p-2 rounded-md hover:bg-red-700">Ver No Disponibles</button>
-            <button onclick="window.location.href='Prestamo'" class="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Mostrar Todos</button>
+            <!--  <button onclick="window.location.href='Prestamo'" class="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Mostrar Todos</button>-->
         </div>
         
         <% String error = (String) request.getAttribute("error"); %>
@@ -51,6 +51,7 @@
                         
                         <th class="border border-gray-300 p-2">Título</th>
                         <th class="border border-gray-300 p-2">Autor</th>
+                        <th class="border border-gray-300 p-2">Descripcion</th>
                         <th class="border border-gray-300 p-2">Código</th>
                         <th class="border border-gray-300 p-2">Estado</th>
                     </tr>
@@ -62,6 +63,7 @@
                             <tr class="bg-gray-200 hover:bg-gray-300">
                                 <td class="border border-gray-300 p-2"><%= libro.getTitulo() %></td>
                                 <td class="border border-gray-300 p-2"><%= libro.getAutor() %></td>
+                                <td class="border border-gray-300 p-2"><%= libro.getDescripcion() %></td>
                                 <td class="border border-gray-300 p-2"><%= libro.getCodigo() %></td>
                                 <td class="border border-gray-300 p-2 text-center"><%= libro.getEstado() %></td>
                             </tr>

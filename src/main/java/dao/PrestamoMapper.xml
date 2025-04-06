@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="dao.PrestamoMapper">
+ 
+ 	<resultMap id="PrestamoMap" type="models.Prestamo" >
+ 		<id column="id_prestamo" property="idPrestamo"/>
+ 		<result column="id_Usuario" property="idUsuario"/>
+ 		<result column="fecha_prestamo" property="fechaPrestamo"/>
+ 		<result column="fecha_devolucion" property="fechaDevolucion"/>
+ 		<result column="estado" property="estado"/>
+ 		<result column="estado_auditoria" property="estadoAuditoria"/>
+ 		<result column="fecha_Creacion" property="fechaCreacion"/>
+ 		<result column="codigo_Interno" property="codigoInterno"/>
+ 	</resultMap>
+ 
+ 	<select id="obtenerPrestamoPorCodigoInterno" parameterType="String" resultMap="PrestamoMap">
+ 		SELECT id_prestamo, id_usuario, fecha_prestamo, fecha_devolucion, estado, estado_auditoria, fecha_creacion, codigo_interno
+ 		FROM prestamos
+ 		WHERE estado_auditoria = '1' and codigo_interno = #{codigoInterno}
+ 	</select>
+ 	
+ 	<insert id="insertarPrestamo" parameterType="models.Prestamo" useGeneratedKeys="true" keyProperty="idPrestamo">
+ 		INSERT INTO prestamos (id_usuario, fecha_prestamo, fecha_devolucion, estado, estado_auditoria, fecha_creacion, codigo_interno)
+ 		VALUES (#{idUsuario}, #{fechaPrestamo}, #{fechaDevolucion}, #{estado}, #{estadoAuditoria}, #{fechaCreacion}, #{codigoInterno})
+ 	</insert>
+ 	
+ 
+ 	 	
+ 	
+ </mapper>

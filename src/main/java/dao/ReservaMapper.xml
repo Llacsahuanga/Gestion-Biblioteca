@@ -19,5 +19,11 @@
         SELECT id_reserva, id_usuario, id_ejemplar, fecha_reserva, estado, imagen_url
         FROM reservas;
     </select>
+    
+   
+	 <!-- Insertar nueva reserva, la fecha se maneja automáticamente por la base de datos -->
+    
+    
+    
 
 </mapper>

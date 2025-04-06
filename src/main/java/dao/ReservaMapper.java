@@ -7,5 +7,7 @@ import models.Reserva;
 public interface ReservaMapper {
 	
 	 List<Reserva> listarReservas();
+	 
+	 void insertarReserva(Reserva reserva);
 
 }
