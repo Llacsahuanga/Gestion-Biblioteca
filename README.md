@@ -43,6 +43,6 @@ Actualmente, solo el botón "Ver disponibles" está funcionando, mientras que lo
 
 ### Diseño BD
 
-https://postimg.cc/FkF0sKxG
+https://postimg.cc/62zMyfWs
 
 
