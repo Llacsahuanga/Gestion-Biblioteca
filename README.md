@@ -9,9 +9,9 @@
  - Esnaider Carhuapoma LLacsahuanga
  - Rosa Elvira Cruz Infante
  
-### Avance del Proyecto de Gestión de Biblioteca
+### Finalizado Proyecto de Gestión de Biblioteca
 
-Hasta ahora, he trabajado en el diseño y desarrollo de mi proyecto de gestión de biblioteca, estructurando diferentes secciones con una interfaz intuitiva y funcional.
+En nuestro proyecto de gestión de biblioteca, hemos estructurado diferentes secciones con una interfaz intuitiva y funcional, que incluye un listado de libros por categorías y subcategorías para una mejor organización y navegación.
 
 ###  Sección de Inicio
    
@@ -19,25 +19,24 @@ En la pantalla principal, he incorporado una imagen representativa de una biblio
 
 ###  Sección de Categorías
    
-En esta sección, he agregado imágenes representativas para cada categoría de libros, facilitando la identificación y navegación entre los distintos tipos de libros disponibles en la biblioteca.
+Esta sección cuenta con imágenes representativas para cada categoría de libros, facilitando la identificación y navegación entre los distintos géneros disponibles.
+Además, se ha implementado una funcionalidad que permite insertar nuevos libros, incluyendo sus respectivos detalles.
+También, se integraron las tablas Prestamos y Detalles_Prestamos, lo que permite gestionar los préstamos de libros directamente desde la aplicación, utilizando el manejo de cookies para una mejor experiencia de usuario.
 
 ###  Sección de Libros
    
-Aquí he implementado una tabla que muestra los datos de los libros almacenados en la base de datos.
-La tabla se actualiza automáticamente con la información disponible en la base de datos.
+En esta sección se muestra una tabla dinámica con los datos de los libros almacenados en la base de datos.
+La tabla se actualiza automáticamente y cuenta con dos botones principales que permiten:
 
-### Funcionalidad para Agregar Libros
-   
-He añadido un botón que permite registrar nuevos libros en la base de datos.
-Al presionar mi seccion de libros, se abre un formulario donde el usuario puede ingresar los detalles del libro (título, autor, editorial, categoría, año de publicación, etc.).
-Una vez ingresados los datos, el libro se guarda en la base de datos y se refleja en la tabla de la sección de libros
+- Ver disponibles (funciona correctamente)
+- Ver no disponibles (funciona correctamente)
 
-Se ha agregado una nueva funcionalidad a la tabla Prestamos, que incluye tres botones:
-- Ver disponibles  (Funciona correctamente)
-- Ver no disponibles  (Aún falta implementar)
-- Mostrar todos  (Aún falta implementar)
+Ambas funciones consultan directamente la tabla de libros para mostrar su disponibilidad actual.
 
-Actualmente, solo el botón "Ver disponibles" está funcionando, mientras que los otros dos están pendientes de implementación.
+### Conclusion
+
+En resumen, el proyecto de gestión de biblioteca ha sido desarrollado de manera clara y ordenada, cumpliendo con los objetivos planteados y, sobre todo, aplicando los conocimientos adquiridos en nuestras clases.
+La integración entre las distintas secciones y la base de datos permite una gestión eficiente de libros y préstamos, brindando una experiencia de usuario sencilla y eficaz.
 
 
 
