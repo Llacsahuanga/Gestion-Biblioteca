@@ -36,7 +36,7 @@ Ambas funciones consultan directamente la tabla de libros para mostrar su dispon
 ### Conclusion
 
 En resumen, el proyecto de gestión de biblioteca ha sido desarrollado de manera clara y ordenada, cumpliendo con los objetivos planteados y, sobre todo, aplicando los conocimientos adquiridos en nuestras clases.
-La integración entre las distintas secciones y la base de datos permite una gestión eficiente de libros y préstamos, brindando una experiencia de usuario sencilla y eficaz.
+La integración entre las distintas secciones y la base de datos permite una gestión eficiente de libros y préstamos, brindando una experiencia de usuario sencilla y eficaz..
 
 
 
