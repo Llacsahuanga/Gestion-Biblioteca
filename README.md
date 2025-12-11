@@ -43,5 +43,6 @@ La integración entre las distintas secciones y la base de datos permite una ges
 ### Diseño BD
 
 https://postimg.cc/62zMyfWs
+https://ibb.co/3y5pX0J8
 
 
